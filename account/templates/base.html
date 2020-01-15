@@ -1,0 +1,18 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <link href="{% static 'css/base.css' %}" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/e6a4fc9da2.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="header">
+        <span class="logo">Th<i class="far fa-times-circle"></i>nysocial</span>
+
+    </div>
+    <div id="content">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>
