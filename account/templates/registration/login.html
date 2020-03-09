@@ -8,10 +8,11 @@
         <p>Please, use the following form to log-in:</p>
     {%endif%}
     <div class="login-form">
-      <form action="." method="post">
+      <form action='{% url "account:login" %}' method="post">
         {{ form.as_p }}
         {% csrf_token %}
-        <p><input type="submit" value="Log in"></p>
+        <input type="hidden" name="text" value="{{next}}">
+        <p><input type="submit" value="Log-in"></p>
       </form>
     </div>
 {% endblock %}
