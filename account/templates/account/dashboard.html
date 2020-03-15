@@ -2,5 +2,9 @@
 {% block title %}Dashboard{% endblock %}
 {% block content %}
     <h1>Dashboard</h1>
-    <p>Welcome , to dashboard on ThonySocial</p>
+    <p>Welcome , to dashboard on ThonySocial.
+        You can <a href="{% url 'account:edit' %}">edit your profile</a>
+        or <a href="{% url 'account:password_change' %}">change your password</a>
+    </p>
+
 {% endblock %}

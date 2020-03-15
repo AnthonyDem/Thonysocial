@@ -6,7 +6,7 @@ from . import views
 app_name = 'account'
 
 urlpatterns = [
-    path('dashboard/', views.dashboard, name='dashboard'),
+    path('', views.dashboard, name='dashboard'),
     path('login/', auth_views.LoginView.as_view(), name="login"),
     path('logout/', auth_views.LogoutView.as_view(), name="logout"),
     path('change_password/',
@@ -21,4 +21,6 @@ urlpatterns = [
          auth_views.PasswordResetConfirmView.as_view(success_url=reverse_lazy('account:password_reset_complete')),
          name='password_reset_confirm'),
     path('reset/done/', auth_views.PasswordResetCompleteView.as_view(), name='password_reset_complete'),
+    path('register/', views.register, name='register'),
+    path('edit/', views.edit, name='edit'),
 ]
