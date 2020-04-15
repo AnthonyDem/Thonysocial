@@ -151,6 +151,8 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '626749246571-vlg7ga8tnq91940idcnbttepkm4l7nbp.a
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 't7VXuJG5dTx35zadXzyc0jcb'
 
 
-ABSOLUTE_URL_OVERRIDES = {
-    'auth.user' : lambda u: reverse_lazy('user_detail', args=[u.username])
-}
+# ABSOLUTE_URL_OVERRIDES = {
+#     'auth.user' : lambda u: reverse_lazy('user_detail', args=[u.username])
+# }
+
+THUMBNAIL_DEBUG = True
