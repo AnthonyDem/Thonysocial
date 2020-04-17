@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['mysite.com', 'localhost', '127.0.0.1', 'a24d4c78.ngrok.io']
 
 INSTALLED_APPS = [
     'account.apps.AccountConfig',
+    'actions.apps.ActionsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
