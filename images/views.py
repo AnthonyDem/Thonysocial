@@ -8,8 +8,7 @@ from django.http import JsonResponse
 from common.decorators import ajax_required
 from django.http import HttpResponse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-
-
+from actions.utils import create_action
 
 
 @login_required
@@ -24,6 +23,7 @@ def image_create(request):
             # Add user to created object
             new_item.user = request.user
             new_item.save()
+            create_action(request.user, 'bookmarked image', new_item)
             messages.success(request, 'Image added successfully')
             # redirect user on saved image page
             return redirect(new_item.get_absolute_url())
@@ -48,6 +48,7 @@ def image_like(request):
             image = Image.objects.get(id=image_id)
             if action == 'like':
                 image.users_likes.add(request.user)
+                create_action(request.user, 'like', image)
             else:
                 image.users_likes.remove(request.user)
             return JsonResponse({'status': 'ok'})
@@ -73,5 +74,3 @@ def image_list(request):
         return render(request, 'images/image/list_ajax.html',
                       {'section': 'images', 'images': images})
     return render(request, 'images/image/list.html', {'section': 'images', 'images': images})
-
-
